@@ -1,10 +1,11 @@
-import UserDashboard from "./components/UserDashboard"
+import MainDashboard from "./components/MainDashboard"
 
 function App() {
 
   return (
     <>
-     <UserDashboard/>
+    <MainDashboard/>
+     
     </>
   )
 }
