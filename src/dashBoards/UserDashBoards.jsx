@@ -4,12 +4,10 @@ import { useNavigate } from "react-router";
 
 const UserDashBoards = () => {
   const [showMentorForm, setShowMentorForm] = useState(false);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
-  function handleLogOut()
-  {
-    navigate("/")
-
+  function handleLogOut() {
+    navigate("/");
   }
 
   return (
@@ -24,10 +22,54 @@ const UserDashBoards = () => {
           <li className="hover:text-blue-600 cursor-pointer">Profile</li>
         </ul>
 
-        <button className="px-4 py-1.5 bg-red-500 text-white rounded hover:bg-red-600" onClick={handleLogOut}>
+        <button
+          className="px-4 py-1.5 bg-red-500 text-white rounded hover:bg-red-600"
+          onClick={handleLogOut}
+        >
           Logout
         </button>
       </nav>
+
+      {/* ===== Added Card Section ===== */}
+      <div className="max-w-6xl mx-auto px-6 mt-10">
+        <h2 className="text-xl font-semibold text-gray-700 mb-6">
+          Mentors Available
+        </h2>
+
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+          {/* One Card (you can map this later) */}
+          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">
+                R
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800">
+                  Rahul Sharma
+                </h3>
+                <p className="text-sm text-gray-500">Frontend Developer</p>
+              </div>
+            </div>
+
+            <div className="mt-4 text-sm text-gray-700 space-y-1">
+              <p>
+                <span className="font-medium">Skills:</span> React, JS, Tailwind
+              </p>
+              <p>
+                <span className="font-medium">Experience:</span> 3+ years
+              </p>
+            </div>
+
+            <button
+              className="mt-5 w-full border border-blue-500 text-blue-500 rounded-lg py-2 hover:bg-blue-500 hover:text-white transition"
+              onClick={() => setShowMentorForm(true)}
+            >
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* ===== End Card Section ===== */}
 
       {/* Page Content */}
       <div className="flex justify-center items-center mt-20">

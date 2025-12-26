@@ -29,7 +29,7 @@ const Home = () => {
         </div>
 
         <img
-          src="/hero.png"
+          src="/Hero_section.jpeg"
           alt="SkillSwap Hero"
           className="w-[350px] mt-10 md:mt-0 rounded-2xl"
         />
