@@ -48,6 +48,16 @@ const UserDashBoards = () => {
                   Rahul Sharma
                 </h3>
                 <p className="text-sm text-gray-500">Frontend Developer</p>
+                {/*  Ratings */}
+                <div className="flex items-center gap-1 mt-1">
+                  <span className="text-yellow-400">★</span>
+                  <span className="text-yellow-400">★</span>
+                  <span className="text-yellow-400">★</span>
+                  <span className="text-yellow-400">★</span>
+                  <span className="text-gray-300">★</span>
+                  <span className="text-xs text-gray-500 ml-1">(4.0)</span>
+                </div>
+                
               </div>
             </div>
 
