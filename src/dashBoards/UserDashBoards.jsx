@@ -30,14 +30,14 @@ const UserDashBoards = () => {
         </button>
       </nav>
 
-      {/* ===== Added Card Section ===== */}
+      {/* ===== Card Section ===== */}
       <div className="max-w-6xl mx-auto px-6 mt-10">
         <h2 className="text-xl font-semibold text-gray-700 mb-6">
           Mentors Available
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {/* One Card (you can map this later) */}
+          {/* One Card */}
           <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">
@@ -48,7 +48,8 @@ const UserDashBoards = () => {
                   Rahul Sharma
                 </h3>
                 <p className="text-sm text-gray-500">Frontend Developer</p>
-                {/*  Ratings */}
+
+                {/* Ratings */}
                 <div className="flex items-center gap-1 mt-1">
                   <span className="text-yellow-400">★</span>
                   <span className="text-yellow-400">★</span>
@@ -57,7 +58,6 @@ const UserDashBoards = () => {
                   <span className="text-gray-300">★</span>
                   <span className="text-xs text-gray-500 ml-1">(4.0)</span>
                 </div>
-                
               </div>
             </div>
 
@@ -80,16 +80,6 @@ const UserDashBoards = () => {
         </div>
       </div>
       {/* ===== End Card Section ===== */}
-
-      {/* Page Content */}
-      <div className="flex justify-center items-center mt-20">
-        <button
-          onClick={() => setShowMentorForm(true)}
-          className="w-44 h-10 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
-        >
-          Request as mentor
-        </button>
-      </div>
 
       {/* MODAL */}
       {showMentorForm && (

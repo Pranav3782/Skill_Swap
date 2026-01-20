@@ -7,6 +7,7 @@ import { RouterProvider } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import UserDashBoards from "./dashBoards/UserDashBoards";
+import ProfilePage from "./dashBoards/ProfilePage";
 
  const router=createBrowserRouter([
     {
@@ -25,6 +26,10 @@ import UserDashBoards from "./dashBoards/UserDashBoards";
     {
       path:"/userDashboard",
       element:<UserDashBoards/>
+    },
+    {
+      path:"/profile",
+      element:<ProfilePage/>
     }
 
   ])
