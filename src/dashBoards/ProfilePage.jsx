@@ -136,7 +136,7 @@ const ProfilePage = () => {
             onClick={() => setShowMentorForm(true)}
             className="px-5 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition ml-auto"
           >
-            Request as Mentors
+            Request as Mentor
           </button>
         </div>
       </div>
