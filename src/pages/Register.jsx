@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -12,7 +12,12 @@ const Register = () => {
   const [learnSkillInput, setLearnSkillInput] = useState("");
   const [learnSkills, setLearnSkills] = useState([]);
 
-  const navigate=useNavigate();
+  // ✅ Photo Upload
+  const [photo, setPhoto] = useState(null);
+  const [photoName, setPhotoName] = useState("");
+  const fileInputRef = useRef(null);
+
+  const navigate = useNavigate();
 
   const addSkill = (e, inputValue, setInput, skills, setSkills) => {
     if (e.key === "Enter" && inputValue.trim() !== "") {
@@ -26,15 +31,36 @@ const Register = () => {
     setSkills(skills.filter((_, i) => i !== index));
   };
 
-  async function handleSubmitButton(e)
-  {
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setPhoto(file);
+    setPhotoName(file.name);
+  };
+
+  async function handleSubmitButton(e) {
     e.preventDefault();
+
+    // You can send `photo`, `photoName`, skills, etc to backend here
+    console.log({
+      username,
+      email,
+      password,
+      knownSkills,
+      learnSkills,
+      photo,
+    });
+
     navigate("/login");
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form className="bg-white p-8 rounded-xl shadow-md w-full max-w-md" onSubmit={handleSubmitButton}>
+      <form
+        className="bg-white p-8 rounded-xl shadow-md w-full max-w-md"
+        onSubmit={handleSubmitButton}
+      >
         <h2 className="text-2xl font-bold text-center mb-6 text-blue-600">
           Register
         </h2>
@@ -76,6 +102,37 @@ const Register = () => {
             required
             className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
           />
+        </div>
+
+        {/* ✅ Profile Photo Upload */}
+        <div className="mb-5">
+          <label className="block mb-2 font-medium">Profile Photo</label>
+
+          <div className="flex flex-col gap-2">
+            <button
+              type="button"
+              onClick={() => fileInputRef.current.click()}
+              className="w-fit px-4 py-2 border border-blue-500 text-blue-600 rounded-lg 
+                         hover:bg-blue-50 transition text-sm font-medium"
+            >
+              Upload Photo
+            </button>
+
+            {photoName && (
+              <p className="text-sm text-gray-600">
+                ✅ Uploaded:{" "}
+                <span className="font-medium">{photoName}</span>
+              </p>
+            )}
+
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              hidden
+              onChange={handlePhotoUpload}
+            />
+          </div>
         </div>
 
         {/* Skills You Know */}
