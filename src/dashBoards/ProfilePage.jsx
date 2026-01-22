@@ -26,14 +26,21 @@ const ProfilePage = () => {
       {/* Page Content */}
       <div className="bg-gray-50 flex justify-center px-4 py-10">
         <div className="bg-white p-6 rounded-xl shadow w-full max-w-lg">
-          
+
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold">Your Profile</h1>
 
+            {/* ✅ Styled Edit Button */}
             <button
               onClick={() => setIsEditing(!isEditing)}
-              className="text-sm text-blue-600 hover:underline"
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 active:scale-95
+                ${
+                  isEditing
+                    ? "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    : "bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
+                }
+              `}
             >
               {isEditing ? "Cancel" : "Edit"}
             </button>
@@ -132,7 +139,7 @@ const ProfilePage = () => {
             {isEditing && (
               <button
                 onClick={() => setIsEditing(false)}
-                className="px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
+                className="px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition active:scale-95"
               >
                 Save Changes
               </button>
@@ -140,7 +147,7 @@ const ProfilePage = () => {
 
             <button
               onClick={() => setShowMentorForm(true)}
-              className="ml-auto px-5 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition"
+              className="ml-auto px-5 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition active:scale-95"
             >
               Request as Mentor
             </button>
