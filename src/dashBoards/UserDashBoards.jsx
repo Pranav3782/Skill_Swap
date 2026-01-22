@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RequestMentorForm from "./RequestMentorForm";
 import { useNavigate } from "react-router";
+import Dashboard_Navbar from "./Dashboard_Navbar";
 
 const UserDashBoards = () => {
   const [showMentorForm, setShowMentorForm] = useState(false);
@@ -9,27 +10,15 @@ const UserDashBoards = () => {
   function handleLogOut() {
     navigate("/");
   }
+  function openProfilePage()
+  {
+    navigate("/profile")
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 relative">
       {/* Navbar */}
-      <nav className="w-full bg-white shadow-md px-6 py-4 flex items-center justify-between relative z-10">
-        <div className="text-xl font-bold text-blue-600">MyLogo</div>
-
-        <ul className="hidden md:flex gap-6 text-gray-600 font-medium">
-          <li className="hover:text-blue-600 cursor-pointer">Home</li>
-          <li className="hover:text-blue-600 cursor-pointer">Dashboard</li>
-          <li className="hover:text-blue-600 cursor-pointer">Profile</li>
-        </ul>
-
-        <button
-          className="px-4 py-1.5 bg-red-500 text-white rounded hover:bg-red-600"
-          onClick={handleLogOut}
-        >
-          Logout
-        </button>
-      </nav>
-
+      <Dashboard_Navbar/>
       {/* ===== Card Section ===== */}
       <div className="max-w-6xl mx-auto px-6 mt-10">
         <h2 className="text-xl font-semibold text-gray-700 mb-6">
