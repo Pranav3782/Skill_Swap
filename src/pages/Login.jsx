@@ -9,7 +9,7 @@ const Login = () => {
   function handleLoginDetails(e)
   {
     e.preventDefault();
-    navigate("/userDashboard")
+    navigate("/dashboard")
   }
 
   return (
