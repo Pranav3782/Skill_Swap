@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import RequestMentorForm from "./RequestMentorForm";
 import Dashboard_Navbar from "./Dashboard_Navbar";
 
@@ -6,10 +6,14 @@ const ProfilePage = () => {
   const [showMentorForm, setShowMentorForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
+  const fileInputRef = useRef(null);
+
   const [user, setUser] = useState({
     name: "Surya Pranav",
     age: 22,
     email: "suryapranav@gmail.com",
+    photo:
+      "https://api.dicebear.com/7.x/initials/svg?seed=Surya", // default avatar
     skillsHave: ["React", "Tailwind", "Python", "UI Design"],
     skillsLearn: ["Backend", "DevOps", "System Design"],
   });
@@ -18,12 +22,18 @@ const ProfilePage = () => {
     setUser({ ...user, [field]: value });
   };
 
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const imageUrl = URL.createObjectURL(file);
+    handleChange("photo", imageUrl);
+  };
+
   return (
     <>
-      {/* Navbar */}
       <Dashboard_Navbar />
 
-      {/* Page Content */}
       <div className="bg-gray-50 flex justify-center px-4 py-10">
         <div className="bg-white p-6 rounded-xl shadow w-full max-w-lg">
 
@@ -31,7 +41,7 @@ const ProfilePage = () => {
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold">Your Profile</h1>
 
-            {/* ✅ Styled Edit Button */}
+            {/* Edit Button */}
             <button
               onClick={() => setIsEditing(!isEditing)}
 
@@ -45,6 +55,39 @@ const ProfilePage = () => {
             >
               {isEditing ? "Cancel" : "Edit"}
             </button>
+          </div>
+
+          {/* ✅ Profile Photo */}
+          <div className="flex flex-col items-center mb-6">
+            <div className="relative">
+              <img
+                src={user.photo}
+                alt="Profile"
+                className="w-28 h-28 rounded-full object-cover border-4 border-gray-200 shadow"
+              />
+
+              {isEditing && (
+                <button
+                  onClick={() => fileInputRef.current.click()}
+                  className="absolute bottom-1 right-1 bg-blue-600 text-white 
+           w-9 h-9 flex items-center justify-center 
+           text-lg font-bold rounded-full shadow-lg 
+           hover:bg-blue-700 active:scale-95 transition"
+
+                >
+                  +
+                </button>
+              )}
+            </div>
+
+            {/* Hidden File Input */}
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              hidden
+              onChange={handlePhotoUpload}
+            />
           </div>
 
           {/* Name */}
