@@ -89,7 +89,7 @@ const UserDashBoards = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-lg p-6 relative">
 
-            {/* ❌ Styled Close Button (Top Right) */}
+            {/* ❌ Close Button */}
             <button
               onClick={() => setSelectedMentor(null)}
               className="absolute top-3 right-3 w-9 h-9 rounded-full 
@@ -141,16 +141,25 @@ const UserDashBoards = () => {
               </p>
             </div>
 
+            {/* ✅ Send Connection Button */}
+            <div className="mt-6">
+              <button
+                onClick={() => {
+                  setShowMentorForm(true);
+                  setSelectedMentor(null);
+                }}
+                className="w-full bg-blue-600 text-white py-2.5 rounded-lg 
+                           hover:bg-blue-700 transition font-medium"
+              >
+               Connection Request
+              </button>
+            </div>
+
           </div>
         </div>
       )}
 
-      {/* ===== Request Modal (kept for future use) ===== */}
-      {showMentorForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-          <RequestMentorForm onClose={() => setShowMentorForm(false)} />
-        </div>
-      )}
+     
     </div>
   );
 };
