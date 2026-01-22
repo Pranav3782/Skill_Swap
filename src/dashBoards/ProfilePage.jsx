@@ -33,7 +33,7 @@ const ProfilePage = () => {
 
             <button
               onClick={() => setIsEditing(!isEditing)}
-              className="text-sm text-blue-600 hover:underline"
+              className="text-sm text-blue-600 rounded"
             >
               {isEditing ? "Cancel" : "Edit"}
             </button>
