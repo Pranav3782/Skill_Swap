@@ -3,7 +3,7 @@ import Dashboard_Navbar from "../Dashboard_Navbar";
 
 const stats = [
   { label: "Classes Taught", value: "124" },
-  { label: "Overall Rating", value: "4.8 ⭐" },
+  { label: "Overall Rating", value: "5 / 4.8 ⭐" },
   { label: "Connections", value: "56" },
   { label: "Upcoming Requests", value: "3" },
 ];
