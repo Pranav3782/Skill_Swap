@@ -103,6 +103,10 @@ const Register = () => {
             className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
           />
         </div>
+        <div>
+          <label htmlFor="">upload profileImage</label>
+        </div>
+
 
         {/* ✅ Profile Photo Upload */}
         <div className="mb-5">

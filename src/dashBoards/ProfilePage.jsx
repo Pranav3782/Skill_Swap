@@ -44,6 +44,7 @@ const ProfilePage = () => {
             {/* Edit Button */}
             <button
               onClick={() => setIsEditing(!isEditing)}
+
               className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 active:scale-95
                 ${
                   isEditing
